@@ -258,8 +258,24 @@ map('n', '<Space>bw', '<Cmd>BufferOrderByWindowNumber<CR>', opts)
 -- Key mapping to move to the previous buffer
 -- vim.api.nvim_set_keymap('n', '<S-TAB>', ':BufferPrevious<CR>', { noremap = true, silent = true })
 
--- Mapping Left Ctrl + ` to switch between the two most recently used buffers
 vim.api.nvim_set_keymap('n', '<TAB>', ':b#<CR>', { noremap = true, silent = true })
+
+-- Move line up
+vim.api.nvim_set_keymap('n', '<A-Up>', ':m .-2<CR>==', { noremap = true, silent = true })
+-- Move line down
+vim.api.nvim_set_keymap('n', '<A-Down>', ':m .+1<CR>==', { noremap = true, silent = true })
+-- Move visual selection up
+vim.api.nvim_set_keymap('v', '<A-Up>', ':m \'<-2<CR>gv=gv', { noremap = true, silent = true })
+-- Move visual selection down
+vim.api.nvim_set_keymap('v', '<A-Down>', ':m \'>+1<CR>gv=gv', { noremap = true, silent = true })
+-- Move line up
+vim.api.nvim_set_keymap('n', '<A-Up>', ':m .-2<CR>==', { noremap = true, silent = true })
+-- Move line down
+vim.api.nvim_set_keymap('n', '<A-Down>', ':m .+1<CR>==', { noremap = true, silent = true })
+-- Move visual selection up
+vim.api.nvim_set_keymap('v', '<A-Up>', ':m \'<-2<CR>gv=gv', { noremap = true, silent = true })
+-- Move visual selection down
+vim.api.nvim_set_keymap('v', '<A-Down>', ':m \'>+1<CR>gv=gv', { noremap = true, silent = true })
 
 
 -- [[ Basic Autocommands ]]
