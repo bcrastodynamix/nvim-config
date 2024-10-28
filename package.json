@@ -1,0 +1,23 @@
+{
+    "name": "friendly-snippets",
+    "engines": {
+        "Vscode": "^1.11.0"
+    },
+    "contributes": {
+        "snippets": [
+            {
+                "language": "php",
+                "path": "./my-snippets/php/php.json"
+            },
+            {
+                "language": "html",
+                "path": "./my-snippets/php/php.json"
+            },
+            {
+                "language": "scss",
+                "path": "./my-snippets/scss/scss.json"
+            }
+        ]
+    }
+}
+

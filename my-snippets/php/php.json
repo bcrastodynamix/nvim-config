@@ -1,0 +1,95 @@
+{
+    "Print to console": {
+        "prefix": "vd",
+        "body": [
+            "var_dump($0);"
+        ],
+        "description": "Log output to console"
+    },
+    "Toggle": {
+        "prefix": "toggle",
+        "body": [
+            "\\$$1 = '';",
+            "if (!empty(\\$customInputs['$2']) && \\$customInputs['$2'] == '$3') {",
+            "\t\\$$1 = '$4';",
+            "}$0"
+        ],
+        "description": "Log output to console"
+    },
+    "Related": {
+        "prefix": "related",
+        "body": [
+            "if (!empty(\\$related['$1-category'])) {",
+            "\t\\$related = \\$related['$1-category'];",
+            "} else {",
+            "\t\\$related = \\$this->fetchPagesByCategoryTag('$1-category');",
+            "}"
+        ],
+        "description": "related template"
+    },
+    "Logo": {
+        "prefix": "logos",
+        "body": [
+            "if (!empty(\\$logo['imagelink'])) { ",
+            "\t\\$tag = 'a';",
+            "\t\\$class = 'logo-link';",
+            "\t\\$href = 'href=\"'.\\$logo['imagelink'].'\"';",
+            "} else {\t",
+            "\t\\$tag = 'div';",
+            "\t\\$class = '';",
+            "\t\\$href = '';\t",
+            "}"
+        ],
+        "description": "related template"
+    },
+    "if !empty conditional": {
+        "prefix": "!empty",
+        "body": [
+            "if (!empty($0)) {",
+            "",
+            "}"
+        ],
+        "description": "conditional"
+    },
+    "if !array conditional": {
+        "prefix": "!array",
+        "body": [
+            "if (!is_array($1)) {",
+            "\t$1 = json_decode($1, true);",
+            "}$0"
+        ],
+        "description": "conditional"
+    },
+    "count": {
+        "prefix": "count conditional",
+        "body": [
+            "\\$count = '';",
+            "if (!empty(\\$loopingInputs)) {",
+            "\t\\$count = count(\\$loopingInputs);",
+            "}"
+        ],
+        "description": "count conditional"
+    },
+    "dummyLooping": {
+        "prefix": "dummyLooping",
+        "body": [
+            "\\$loopingInputs = array_merge(\\$loopingInputs, \\$loopingInputs);",
+            "\\$loopingInputs = array_slice(\\$loopingInputs, 0, $0);"
+        ],
+        "description": "create dummy looping inputs"
+    },
+    "customInputs": {
+        "prefix": "ci",
+        "body": [
+            "\\$customInputs['$1']$0"
+        ],
+        "description": "customInputs"
+    },
+    "loopingInput": {
+        "prefix": "li",
+        "body": [
+            "\\$loopingInput['$1']$0"
+        ],
+        "description": "loopingInputs"
+    }
+}

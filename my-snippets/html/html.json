@@ -1,0 +1,217 @@
+{
+	"Print php": {
+		"prefix": "php",
+		"body": [
+			"<?php",
+			"$0",
+			"?>"
+		],
+		"description": "var_dump stuff"
+	},
+
+	"Image": {
+		"prefix": "image",
+		"body": [
+			"<?php if(!empty(\\$customInputs['image']['imagefile']) && !empty(\\$customInputs['image']['alt'])) { ?>",
+			"	<div class=\"image-wrapper\">",
+			"		<picture>",
+			"			<img src=\"<?= \\$this->transformImage(array(\"file\" => \\$customInputs['image']['imagefile'], \"operation\" => \"bound\", \"sizing\" => \"100x100\", \"source\" => true)) ?>\"",
+			"				alt=\"<?= strip_tags(\\$customInputs['image']['alt']) ?>\"",
+			"				class=\"image-item\"",
+			"				width=\"100\"",
+			"				height=\"100\"",
+			"			/>",
+			"		</picture>",
+			"	</div>",
+			"<?php } ?>"
+		],
+		"description": "var_dump stuff"
+	},
+
+	"Boilerplate-grid": {
+		"prefix": "defgrid",
+		"body": [
+			"<section class=\"layout-$0\" <?= \\$this->sectionAttributes(\\$page, true)?>>",
+			"	<div class=\"bg-image\"></div>",
+			"	<div class=\"width-container\">",
+			"		<?php if(!empty(\\$customInputs['title']) || !empty(\\$customInputs['content'])) { ?>",
+			"			<div class=\"header-wrapper\" data-animation=\"inview-fade-up\">",
+			"				<?php if (!empty(\\$customInputs['title'])) { ",
+			"					\\$heading = \\$this->heading(); ?>",
+			"					<<?= \\$heading ?> class=\"section-title\" data-styleable>",
+			"						<?= \\$customInputs['title']?>",
+			"					</<?= \\$heading ?>>",
+			"				<?php } ?>",
+			"				<?php if(!empty(\\$customInputs['content'])) { ?>",
+			"					<div class=\"content-container\">",
+			"						<?= \\$customInputs['content'] ?>",
+			"					</div>",
+			"				<?php } ?>",
+			"			</div>",
+			"		<?php } ?>",
+			"		<div class=\"grid-wrapper\">",
+			"			<?php foreach(\\$loopingInputs as \\$key => \\$loopingInput) { ?>",
+			"			<?php } ?>",
+			"		</div>",
+			"		<?php if (!empty(\\$customInputs['cta']['url']) && !empty(\\$customInputs['cta']['title']) ) { ?>",
+			"			<div class=\"btn-wrapper\">",
+			"				<a class=\"btn\" href=\"<?= \\$customInputs['cta']['url'] ?>\" data-styleable><?= \\$customInputs['cta']['title'] ?></a>",
+			"			</div>",
+			"		<?php } ?>",
+			"	</div>",
+			"</section>"
+		],
+		"description": "biolerplate defaults stuff"
+	},
+
+
+	"var_dump": {
+		"prefix": "vd",
+		"body": [
+			"<?php var_dump($0); ?>"
+		],
+		"description": "loopingInputs template"
+	},
+
+	"loopingInputs": {
+		"prefix": "loopingInputs",
+		"body": [
+			"<?php foreach(\\$loopingInputs as \\$key => \\$loopingInput) { ?>",
+			"	$0",
+			"<?php } ?>"
+		],
+		"description": "loopingInputs template"
+	},
+
+	"!empty": {
+		"prefix": "!empty",
+		"body": [
+			"<?php if(!empty($1)) { ?>",
+			"	$0",
+			"<?php } ?>"
+		],
+		"description": "conditional"
+	},
+
+	"text": {
+		"prefix": "text input",
+		"body": [
+			"<?php if (!empty(\\$customInputs['$1'])) { ?>"
+			"	<h3 class=\"column-title\" data-styleable><?= \\$customInputs['$1'] ?></h3>"
+			"<?php } ?>"
+		],
+		"description": "text-input"
+	},
+
+	"cta": {
+		"prefix": "cta",
+		"body": [
+			"<?php if (!empty(\\$customInputs['cta']['url']) && !empty(\\$customInputs['cta']['title']) ) { ?>"
+			"	<div class=\"btn-wrapper\">"
+			"		<a class=\"btn\" href=\"<?= \\$customInputs['cta']['url'] ?>\" data-styleable><?= \\$customInputs['cta']['title'] ?></a>"
+			"	</div>"
+			"<?php } ?>"
+		],
+		"description": "link-input"
+	},
+
+	"custom input subtitle": {
+		"prefix": "csubtitle",
+		"body": [
+			"<?php if (!empty(\\$customInputs['subtitle'])) { ?>"
+			"	<h3 class=\"column-title\" data-styleable><?= \\$customInputs['subtitle'] ?></h3>"
+			"<?php } ?>"
+		],
+		"description": "custominput title-input"
+	},
+
+	"title": {
+		"prefix": "ltitle",
+		"body": [
+			"<?php if (!empty(\\$loopingInput['title'])) { ?>"
+			"	<h3 class=\"column-title\" data-styleable><?= \\$loopingInput['title'] ?></h3>"
+			"<?php } ?>"
+		],
+		"description": "title-input"
+	},
+
+	"subtitle": {
+		"prefix": "lsubtitle",
+		"body": [
+			"<?php if (!empty(\\$loopingInput['subtitle'])) { ?>"
+			"	<h4 class=\"column-subtitle\" data-styleable><?= \\$loopingInput['subtitle'] ?></h4>"
+			"<?php } ?>"
+		],
+		"description": "subtitle-input"
+	},
+
+	"content": {
+		"prefix": "lcontent",
+		"body": [
+			"<?php if (!empty(\\$loopingInput['content'])) { ?>"
+			"	<div class=\"content-container\">"
+			"		<?= \\$loopingInput['content'] ?>"
+			"	</div>"
+			"<?php } ?>"
+		],
+		"description": "content-input"
+	},
+
+	"btn": {
+		"prefix": "lbtn",
+		"body": [
+			"<?php if (!empty(\\$loopingInput['cta']['url']) && !empty(\\$loopingInput['cta']['title']) ) { ?>"
+			"	<div class=\"btn-wrapper\">"
+			"		<a class=\"btn\" href=\"<?= \\$loopingInput['cta']['url'] ?>\" data-styleable><?= \\$loopingInput['cta']['title'] ?></a>"
+			"	</div>"
+			"<?php } ?>"
+		],
+		"description": "link-input"
+	},
+
+	"for": {
+		"prefix": "for",
+		"body": [
+			
+			"<?php for (\\$i=1; \\$i < 3; \\$i++) { ?>",
+			"	<div class=\"column-wrapper column-<?= \\$i ?>\" data-animation=\"inview-fade-up\">",
+			"		<div class=\"column-inner\">",
+			"			<?php if(!empty(\\$customInputs['content-' . \\$i])) { ?>",
+			"				<div class=\"content-container\" data-styleable-text><?= \\$customInputs['content-' . \\$i]?></div>",
+			"			<?php } ?>",
+			"		</div>",
+			"	</div>",
+			"<?php } ?>"
+		],
+		"description": "link-input"
+	},
+
+	"data-styable": {
+		"prefix": "ds",
+		"body": [
+			"data-styleable"
+		],
+		"description": "data-styleable"
+	},
+
+	"data-styable-text": {
+		"prefix": "dst",
+		"body": [
+			"data-styleable-text"
+		],
+		"description": "data-styleable-text"
+	},
+
+	"video": {
+		"prefix": "video",
+		"body": [
+			"<?php if(!empty(\\$video['video']['url']) && !empty(\\$video['video']['source'])) {"
+			"	\\$videoId = \\$this->videoparser(\\$video['video']['url'], \\$video['video']['source']); ?>"
+			"	<div class=\"play-btn-wrapper\">"
+			"		<button class=\"play-btn\" data-interaction=\"modalVideo\" data-channel=\"<?= \\$customInputs['video']['source'] ?>\" data-video-id=\"<?= \\$videoId ?>\">Play Video</button>"
+			"	</div>"
+			"<?php } ?>"
+		],
+		"description": "video-input"
+	}	
+}

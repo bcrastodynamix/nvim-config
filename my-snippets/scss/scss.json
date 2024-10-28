@@ -1,0 +1,199 @@
+{
+    "Before": {
+        "prefix": "before",
+        "body": [
+            "&::before {",
+            "\t@include before;",
+            "\ttop: 0;",
+            "\tleft: 0;",
+            "\twidth: 100%;",
+            "\theight: 100%;",
+            "$0",
+            "}"
+        ],
+        "description": "Log output to console"
+    },
+    "Media query": {
+        "prefix": "media",
+        "body": [
+            "@media screen and (max-width: $1px) {",
+            "\t$0",
+            "}"
+        ],
+        "description": "media query stuff"
+    },
+    "Import": {
+        "prefix": "import",
+        "body": [
+            "@import $0"
+        ],
+        "description": "import"
+    },
+    "Import mixin": {
+        "prefix": "mixin",
+        "body": [
+            "@import '../reset/mixins';$0"
+        ],
+        "description": "import mixin"
+    },
+    "SVG": {
+        "prefix": "svg",
+        "body": [
+            "@include mask-svg-set;",
+            "@include mask-svg-img('$0.svg');"
+        ],
+        "description": "mask svg template"
+    },
+    "High Contrast": {
+        "prefix": "high-contrast",
+        "body": [
+            ".high-contrast & {",
+            "\t$0",
+            "}"
+        ],
+        "description": "High Contrast"
+    },
+    "bg-image-template": {
+        "prefix": "bg-image",
+        "body": [
+            ".bg-image {",
+            "\tposition: absolute;",
+            "\tleft: 0;",
+            "\ttop: 0;",
+            "\twidth: 100%;",
+            "\theight: 100%;",
+            "\tbackground-size: cover;",
+            "\tbackground-position: center;",
+            "\tbackground-repeat: no-repeat;",
+            "}"
+        ],
+        "description": "bg-image template"
+    },
+
+	"hover and focus": {
+		"prefix": "hover",
+		"body": [
+			"&:hover,",
+			"&:focus {",
+			"\t$0",
+			"}"
+		],
+		"description": "hover and focus"
+	},
+
+	"retina mixin": {
+		"prefix": "retina",
+		"body": [
+			"@include retina('$0', contain);"
+		],
+		"description": "retina mixin"
+	},
+
+	"var hex": {
+		"prefix": "--",
+		"body": [
+			"var(--$1-hex)$0"
+		],
+		"description": "var(--x-hex)"
+	},
+
+	"var": {
+		"prefix": "-",
+		"body": [
+			"var(--$1)$0"
+		],
+		"description": "var(--x)"
+	},
+
+	"transform translate 50% 50%": {
+		"prefix": "tt5",
+		"body": [
+			"transform: translate(-50%, -50%);"
+		],
+		"description": "transform: translate(-50%, -50%);"
+	},
+
+	
+	"rgba(var, X)": {
+		"prefix": "rgba",
+		"body": [
+			"rgba(var(--$0), 1.0)"
+		],
+		"description": "rgba w/ var"
+	},
+
+	"var()": {
+		"prefix": "var",
+		"body": [
+			"var($0)"
+		],
+		"description": "var"
+	},
+
+	"icon setting": {
+		"prefix": "icon",
+		"body": [
+			".icon-$1 {",
+			"\t&::before {",
+			"\t@include mask-svg-img('icon-$1');",
+			"\t}",
+			"}$0"
+		],
+		"description": "icon"
+	},
+
+	"header wrapper": {
+		"prefix": "header-wrapper",
+		"body": [
+			".header-wrapper {",
+			"\tmax-width: 1000px;",
+			"\tmargin: 0 auto;",
+			"\ttext-align: center;",
+			"}"
+		],
+		"description": "default header"
+	},
+
+	"top left tt5": {
+		"prefix": "t5l5",
+		"body": [
+			"top: 50%;",
+			"left: 50%;",
+			"transform: translate(-50%, -50%);"
+		],
+		"description": "top 50%"
+	},
+
+
+	"header-wrapper": {
+		"prefix": "hw",
+		"body": [
+			".header-wrapper {",
+			"\tmax-width: 1000px;",
+			"\tmargin: 0 auto;",
+			"",
+			"\t& + .grid-wrapper {",
+			"\t\\margin-top: 2em;",
+			"\t}",
+			"}"
+		],
+		"description": "top 50%"
+	},
+
+	"background-image": {
+		"prefix": "bg-image",
+		"body": [
+			".bg-image {",
+			"position: absolute;",
+			"top: 0;",
+			"left: 0;",
+			"width: 100%;",
+			"height: 100%;",
+			"background-position: center;",
+			"background-size: cover;",
+			"background-repeat: no-repeat;",
+			"}"
+		],
+		"description": "background-image"
+	}
+}
