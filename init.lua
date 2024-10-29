@@ -275,8 +275,16 @@ vim.api.nvim_set_keymap('n', '<A-Down>', ':m .+1<CR>==', { noremap = true, silen
 vim.api.nvim_set_keymap('v', '<A-Up>', ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
 -- Move visual selection down
 vim.api.nvim_set_keymap('v', '<A-Down>', ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
-
+-- Select All
 vim.api.nvim_set_keymap('n', '<C-a>', 'gg<S-v>G', { desc = 'Select ALl' })
+
+-- allow to copy to system clipboard
+-- set system clipboard
+vim.keymap.set('n','y','"+y')
+vim.keymap.set('n','yy','"+yy')
+vim.keymap.set('n','Y','"+Y')
+vim.keymap.set('x','y','"+y')
+vim.keymap.set('x','Y','"+Y')
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
