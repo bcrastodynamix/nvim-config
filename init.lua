@@ -278,13 +278,6 @@ vim.api.nvim_set_keymap('v', '<A-Down>', ":m '>+1<CR>gv=gv", { noremap = true, s
 -- Select All
 vim.api.nvim_set_keymap('n', '<C-a>', 'gg<S-v>G', { desc = 'Select ALl' })
 
--- allow to copy to system clipboard
--- set system clipboard
-vim.keymap.set('n','y','"+y')
-vim.keymap.set('n','yy','"+yy')
-vim.keymap.set('n','Y','"+Y')
-vim.keymap.set('x','y','"+y')
-vim.keymap.set('x','Y','"+Y')
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -678,7 +671,27 @@ require('lazy').setup({
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
 
-        cssls = {},
+        -- cssls = {},
+
+        cssls = {
+          settings = {
+            css = {
+              validate = true,
+              lint = {
+                enable = true
+              }
+            },
+            scss = {
+              validate = true,
+              lint = {
+                enable = true
+              }
+            }
+          }
+        },
+        -- Optional: add scss-language-server if you want more specific SCSS support
+        scssls = {},
+
         -- Some languages (like typescript) have entire language plugins that can be useful:
         --    https://github.com/pmizio/typescript-tools.nvim
         --
@@ -717,6 +730,7 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format lua code
+        'stylelint',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -785,15 +799,15 @@ require('lazy').setup({
           -- `friendly-snippets` contains a variety of premade snippets.
           --    See the README about individual language/framework/plugin snippets:
           --    https://github.com/rafamadriz/friendly-snippets
-          {
-            'rafamadriz/friendly-snippets',
-            config = function()
-              require('luasnip.loaders.from_vscode').lazy_load()
-              require('luasnip.loaders.from_vscode').lazy_load {
-                paths = { './my-snippets' },
-              }
-            end,
-          },
+          -- {
+          --   'rafamadriz/friendly-snippets',
+          --   config = function()
+          --     require('luasnip.loaders.from_vscode').lazy_load()
+          --     require('luasnip.loaders.from_vscode').lazy_load {
+          --       paths = { './my-snippets' },
+          --     }
+          --   end,
+          -- },
         },
       },
       'saadparwaiz1/cmp_luasnip',
@@ -881,14 +895,12 @@ require('lazy').setup({
     -- change the command in the config to whatever the name of that colorscheme is
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`
-    --'folke/tokyonight.nvim',
     'catppuccin/nvim',
     priority = 1000, -- make sure to load this before all the other start plugins
     init = function()
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      --vim.cmd.colorscheme 'tokyonight-night'
       vim.cmd.colorscheme 'catppuccin'
 
       -- You can configure highlights by doing something like

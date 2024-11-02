@@ -164,7 +164,6 @@
 		"description": "top 50%"
 	},
 
-
 	"header-wrapper": {
 		"prefix": "hw",
 		"body": [
@@ -179,21 +178,4 @@
 		],
 		"description": "top 50%"
 	},
-
-	"background-image": {
-		"prefix": "bg-image",
-		"body": [
-			".bg-image {",
-			"position: absolute;",
-			"top: 0;",
-			"left: 0;",
-			"width: 100%;",
-			"height: 100%;",
-			"background-position: center;",
-			"background-size: cover;",
-			"background-repeat: no-repeat;",
-			"}"
-		],
-		"description": "background-image"
-	}
 }
